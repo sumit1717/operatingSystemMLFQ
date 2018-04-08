@@ -3,7 +3,11 @@
 #define arr 100
 
 using namespace std;
-int arival[arr],burst[arr],prior[arr],respT[arr],pid[arr];
+queue<int> que;
+int tquan= 4,time;
+int f[arr],rtf[arr],qt[arr];//to chk wether p ic complete or not
+int arival[arr],burst[arr],prior[arr],respT[arr],full[arr],fe[arr],pid[arr];
+int sc=0,slc=-1,lc=0;//counters
 
 main()
 {
@@ -29,6 +33,37 @@ main()
 		min=prior[i];
         sc=i;
         	}}
-            }
+       if(sc!=-1 && !que.empty() && slc==-1)
+      {
+      	if(qt[que.front()]<=4 && qt[que.front()]>0)
+      	{
+      	que.push(que.front());
+      	que.pop();
+        } }
+      if(sc!=-1 && !rtf[sc])
+      {
+      	fe[sc]=time-arival[sc];
+      	rtf[sc]=1;
+      }
+      if( sc!=slc && slc!=-1 && !f[slc])
+      {
+      	que.push(slc);
+      	f[slc]=1;
+      }
+      if(sc !=-1)
+      	respT[sc]--;
+       if((sc !=-1) && ((respT[sc]==0) ||(burst[sc]-respT[sc])==tquan))
+      {
+      	if((burst[sc]-respT[sc])==tquan && respT[sc]!=0)
+      	{
+      		f[sc]=1;
+      		que.push(sc);
+        	}
+       	else if(sc!=-1)
+       	{
+		   full[sc]=time+1;
+          	f[sc]=1;
+        	}}
+      slc=sc;
     }
-   
+   }
