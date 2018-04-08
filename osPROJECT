@@ -18,5 +18,17 @@ main()
         sum+=burst[i];
     	respT[i]=burst[i];
     } cout<<endl;
+    min=arr;
+    for(time=0;!que.empty()||time<=sum+lc;time++)
+    {min=arr;
+      sc=-1;
+      for(i=0;i<n;i++)
+      {
+	  if(arival[i]<=time && prior[i]<min&&respT[i]>0&&!f[i])
+      	{
+		min=prior[i];
+        sc=i;
+        	}}
+            }
     }
    
