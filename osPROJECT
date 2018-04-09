@@ -37,7 +37,7 @@ main()
 	if(sc==-1 && !que.empty())
       {
       	  if(slc !=-1 && respT[slc]==0)
-      	{
+      {
 	     full[slc]=time;
              f[slc]=1;
         	}
