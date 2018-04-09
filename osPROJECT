@@ -78,6 +78,10 @@ main()
         	}}
       slc=sc;
     }
+    cout<<"ProcessId  ResponseT   FullT   WaitingT \n";
+   for(int i=0;i<n;i++)
+       cout<<"    "<<pid[i]<<"\t\t"<<fe[i]<<"\t"<<full[i]<<"  \t"<<full[i]-burst[i]-arival[i]<<endl;
+    return 0;
    }
     void robin()
 {
