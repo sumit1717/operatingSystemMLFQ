@@ -24,22 +24,22 @@ main()
     	respT[i]=burst[i];
     } cout<<endl;
     min=arr;
-    for(time=0;!que.empty()||time<=sum+lc;time++)
-    {min=arr;
+    for(time=0;!que.empty()||time<=sum+lc;time++){
+      min=arr;
       sc=-1;
       for(i=0;i<n;i++)
       {
-	  if(arival[i]<=time && prior[i]<min&&respT[i]>0&&!f[i])
+	if(arival[i]<=time && prior[i]<min&&respT[i]>0&&!f[i])
       	{
-		min=prior[i];
-        sc=i;
+           min=prior[i];
+           sc=i;
         	}}
-		 if(sc==-1 && !que.empty())
+	if(sc==-1 && !que.empty())
       {
-      	if(slc !=-1 && respT[slc]==0)
+      	  if(slc !=-1 && respT[slc]==0)
       	{
-		full[slc]=time;
-        f[slc]=1;
+	     full[slc]=time;
+             f[slc]=1;
         	}
         slc=-1;
         robin();
@@ -64,17 +64,17 @@ main()
       }
       if(sc !=-1)
       	respT[sc]--;
-       if((sc !=-1) && ((respT[sc]==0) ||(burst[sc]-respT[sc])==tquan))
+      if((sc !=-1) && ((respT[sc]==0) ||(burst[sc]-respT[sc])==tquan))
       {
       	if((burst[sc]-respT[sc])==tquan && respT[sc]!=0)
       	{
-      		f[sc]=1;
-      		que.push(sc);
+      	   f[sc]=1;
+      	   que.push(sc);
         	}
        	else if(sc!=-1)
        	{
-		   full[sc]=time+1;
-          	f[sc]=1;
+	      full[sc]=time+1;
+              f[sc]=1;
         	}}
       slc=sc;
     }
@@ -83,7 +83,7 @@ main()
        cout<<"    "<<pid[i]<<"\t\t"<<fe[i]<<"\t"<<full[i]<<"  \t"<<full[i]-burst[i]-arival[i]<<endl;
     return 0;
    }
-    void robin()
+void robin()
 {
 if(!que.empty())
 {
@@ -98,10 +98,10 @@ if(!que.empty())
         }
       if(respT[que.front()]!=0 && qt[que.front()]==4)
 	  {
-		qt[que.front()]=0;
-		que.push(que.front());
-		que.pop();
+	    qt[que.front()]=0;
+            que.push(que.front());
+            que.pop();
         }
-	}
+     }
   }
 }
